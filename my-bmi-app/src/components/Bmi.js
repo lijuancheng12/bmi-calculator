@@ -33,7 +33,7 @@ const HeightAndWeight = (props) => {
     />
   ) : (
     <div className={styles.container}>
-      Hej{props.name} Hur lång är du?{" "}
+      Hej {props.name} Hur lång är du?{" "}
       <span>
         <input
           type="text"
@@ -66,11 +66,11 @@ export const BmiCalculate = () => {
     setInputValue(event.target.value);
   };
 
-  return hasClicked ? (
+  return false && hasClicked ? (
     <HeightAndWeight name={inputValue} />
   ) : (
     <div className={styles.container}>
-      Hej! Vad heter du?{" "}
+      <h2> Hej! Vad heter du?</h2>
       <input
         type="text"
         name="name"
@@ -78,9 +78,12 @@ export const BmiCalculate = () => {
         value={inputValue}
       />
       <div className={styles.wrapper}>
-        <button onClick={onChangeButton}>
+        <button
+          onClick={onChangeButton}
+          className={hasClicked ? styles.is_active : null}
+        >
           <span className={styles.buttonText}>Skicka</span>
-          <div class="success">
+          <div className={hasClicked ? styles.success : null}>
             <svg
               version="1.1"
               xmlnsXlink="http://www.w3.org/1999/xlink"
