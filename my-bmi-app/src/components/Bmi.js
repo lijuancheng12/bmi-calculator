@@ -58,15 +58,18 @@ const HeightAndWeight = (props) => {
 export const BmiCalculate = () => {
   const [inputValue, setInputValue] = React.useState("");
   const [hasClicked, setHasClicked] = React.useState(false);
-
+  const [changePage, setchangePage] = React.useState(false);
   const onChangeButton = () => {
     setHasClicked(true);
+    setTimeout(() => {
+      setchangePage(true);
+    }, 2000);
   };
   const onChangeHandler = (event) => {
     setInputValue(event.target.value);
   };
 
-  return false && hasClicked ? (
+  return changePage ? (
     <HeightAndWeight name={inputValue} />
   ) : (
     <div className={styles.container}>
