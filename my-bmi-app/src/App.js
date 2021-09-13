@@ -1,5 +1,5 @@
-import { BmiCalculate } from "./components/Bmi";
-import { Overlay } from "./components/Overlay";
+import { BmiCalculate } from "./components/Bmi/Bmi";
+import { Overlay } from "./components/Overlay/Overlay";
 import styles from "./App.module.scss";
 
 function App() {

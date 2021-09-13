@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Bmi.module.scss";
-import face from "../smiling-face.png";
-import hungry from "../hungry.png";
-import kitty from "../kitty.png";
+import face from "../../assets/smiling-face.png";
+import hungry from "../../assets/hungry.png";
+import kitty from "../../assets/kitty.png";
 
 const BmiCalculateCompnents = (props) => {
   let numberOfBmi =
