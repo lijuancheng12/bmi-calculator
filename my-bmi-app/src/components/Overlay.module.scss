@@ -1,0 +1,136 @@
+.overLay {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+  color: gray;
+  padding: 20px;
+  border-left: 8px solid #0a7e85;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  line-height: 25px;
+  .text {
+    width: 80%;
+  }
+}
+@mixin transition() {
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.btn {
+  a {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    opacity: 1;
+    @include transition();
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(247, 149, 29, 0.5);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(247, 149, 29, 0.5);
+    box-shadow: 0px 0px 15px 0px rgba(247, 149, 29, 0.5);
+
+    & > span {
+      background-color: #f5a700;
+      display: block;
+      height: 4px;
+      border-radius: 3px;
+      position: relative;
+      @include transition();
+      position: absolute;
+      top: 50%;
+      margin-top: -3px;
+      left: 2px;
+      width: 20px;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      -moz-justify-content: space-between;
+      -ms-justify-content: space-between;
+
+      span {
+        display: block;
+        background-color: #ed7f00;
+        width: 4px;
+        height: 4px;
+        border-radius: 3px;
+        @include transition();
+        position: absolute;
+      }
+
+      &.left {
+        transform: rotate(45deg);
+        transform-origin: center;
+
+        .circleLeft {
+          @include transition();
+          margin-left: 0;
+        }
+
+        .circleRight {
+          @include transition();
+          margin-left: 16px;
+        }
+      }
+
+      &.right {
+        transform: rotate(-45deg);
+        transform-origin: center;
+
+        .circleLeft {
+          @include transition();
+          margin-left: 0;
+        }
+
+        .circleRight {
+          @include transition();
+          margin-left: 16px;
+        }
+      }
+    }
+
+    &:hover {
+      & > span {
+        background-color: #2faee0;
+        @include transition();
+
+        span {
+          @include transition();
+          background-color: #008ac9;
+        }
+
+        &.left {
+          .circleLeft {
+            @include transition();
+            margin-left: 16px;
+          }
+
+          .circleRight {
+            @include transition();
+            margin-left: 0;
+          }
+        }
+
+        &.right {
+          .circleLeft {
+            @include transition();
+            margin-left: 16px;
+          }
+
+          .circleRight {
+            @include transition();
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}

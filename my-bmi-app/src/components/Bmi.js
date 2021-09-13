@@ -35,6 +35,8 @@ const BmiCalculateCompnents = (props) => {
         </div>
       </div>
     );
+  } else {
+    return;
   }
 };
 
