@@ -1,20 +1,40 @@
 import React from "react";
 import styles from "./Bmi.module.scss";
-import face from "../iconsface.png";
+import face from "../smiling-face.png";
+import hungry from "../hungry.png";
+import kitty from "../kitty.png";
 
 const BmiCalculateCompnents = (props) => {
-  const numberOfBmi =
+  let numberOfBmi =
     props.inputWeight / (props.inputHeight * props.inputHeight * 0.0001);
+  numberOfBmi = numberOfBmi.toFixed(2);
   if (20 <= numberOfBmi && numberOfBmi <= 25) {
     return (
       <div>
-        Din Bmi är {numberOfBmi} <img src={face} />
+        <h2>Din Bmi är {numberOfBmi}</h2>
+        <div>
+          <img src={hungry} />
+        </div>
       </div>
     );
   } else if (25 < numberOfBmi && numberOfBmi <= 30) {
-    return <div>Din Bmi är {numberOfBmi}</div>;
+    return (
+      <div>
+        <h2>Din Bmi är {numberOfBmi}</h2>
+        <div>
+          <img src={face} />
+        </div>
+      </div>
+    );
   } else if (30 < numberOfBmi && numberOfBmi) {
-    return <div>Din Bmi är {numberOfBmi}</div>;
+    return (
+      <div>
+        <h2>Din Bmi är {numberOfBmi}</h2>
+        <div>
+          <img src={kitty} />
+        </div>
+      </div>
+    );
   }
 };
 
@@ -32,26 +52,28 @@ const HeightAndWeight = (props) => {
       inputHeight={parseInt(inputHeight)}
     />
   ) : (
-    <div className={styles.container}>
-      Hej {props.name} Hur lång är du?{" "}
-      <span>
+    <div className={styles.heightAndWeight}>
+      Hej {props.name} Hur lång är du?
+      <div className={styles.inputField}>
         <input
           type="text"
           onChange={(e) => setInputHeight(e.target.value)}
           value={inputHeight}
         />
-        CM
-      </span>
+        Cm
+      </div>
       Vad är din vikt?
-      <span>
+      <div className={styles.inputField}>
         <input
           type="text"
           onChange={(e) => setInputWeight(e.target.value)}
           value={inputWeight}
         />
-      </span>
-      KG
-      <button onClick={OnCalculate}>RäknaBMI</button>
+        Kg
+      </div>
+      <div>
+        <button onClick={OnCalculate}>RäknaBMI</button>
+      </div>
     </div>
   );
 };
